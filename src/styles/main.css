@@ -1,0 +1,19 @@
+@import "./normalize.css";
+@import "./variables.css";
+
+* {
+	transition: background var(--std-transition), color var(--std-transition);
+	font-family: 'Helvetica Now Display';
+}
+
+html {
+	background: var(--background);
+	color: var(--color);
+	height: 100%;
+}
+
+button {
+	border-radius: 0;
+	border: none;
+	cursor: pointer;
+}

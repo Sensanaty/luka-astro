@@ -1,0 +1,30 @@
+---
+import '../styles/main.css';
+
+const {
+  title = 'LUKA',
+  description = 'Personal website of Webdev Luka Salevic'
+} = Astro.props
+---
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+
+<title>{title}</title>
+<meta name="description" property="og:description" content={description}>
+
+<script>
+  const theme = window.localStorage.getItem("theme");
+  const rootElement = document.documentElement;
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (theme && theme === "dark") {
+    rootElement.classList.remove("light");
+  } else if (theme && theme === "light") {
+    rootElement.classList.add("light");
+  } else if (prefersDark) {
+    rootElement.classList.remove("light");
+  } else { 
+    rootElement.classList.add("light")
+  }
+</script>

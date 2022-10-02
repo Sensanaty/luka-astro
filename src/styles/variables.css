@@ -1,0 +1,11 @@
+:root { 
+	--background: black;
+	--color: white;
+
+  --std-transition: 70ms ease-in-out;
+}
+
+:root.light { 
+  --background: white;
+  --color: black;
+}
