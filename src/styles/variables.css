@@ -4,11 +4,22 @@
   --cl: #FDFDFD;
   --accent: #FF9F1C;
 
+  --shadow: inset rgba(0, 0, 0, 0.2) 0 1px 3px, inset rgba(0, 0, 0, 0.2) 0 1px 2px;
+
+  --text-shadow-top: 6px;
+  --text-shadow-left: -6px;
   --std-transition: 70ms ease-in-out;
+
+  --ruby-accent: #EF3054;
 }
 
 :root.light { 
   --bg: #EDE7D9;
   --bg-highlight: #FDFDFD;
   --cl: #222222;
+
+  --text-shadow-top: 3px;
+  --text-shadow-left: -3px;
+
+  --shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }

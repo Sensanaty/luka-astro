@@ -3,13 +3,14 @@
 
 * {
 	transition: background var(--std-transition), color var(--std-transition);
-	font-family: 'Helvetica Now Display';
+	font-family: "JetBrains Mono NL";
 }
 
 html {
 	background: var(--bg);
 	color: var(--cl);
 	height: 100%;
+	overflow: hidden;
 }
 
 button {
@@ -17,3 +18,5 @@ button {
 	border: none;
 	cursor: pointer;
 }
+
+h1, h2, h3, p { margin: 0; padding: 0; }
