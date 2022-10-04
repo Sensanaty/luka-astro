@@ -45,10 +45,7 @@
     padding: 5px 25px;
   }
 
-  .time {
-    margin: 0 auto;
-  }
-
+  .time { margin: 0 auto }
   nav { margin-left: auto }
 
   a { color: var(--cl); text-decoration: solid underline var(--accent) 2px; margin: 0 4px; }
@@ -66,4 +63,11 @@
     75% { transform: rotate(-45deg) }
     100% { transform: rotate(0deg) }
   }
+
+  @media screen and (max-width: 530px) {
+    img { display: none; }
+    .time { display: none; }
+    footer { display: flex; justify-content: center; }
+    nav { margin: 0 auto }
+	}
 </style>
