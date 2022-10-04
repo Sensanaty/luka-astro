@@ -4,7 +4,7 @@
 
 * {
 	transition: background var(--std-transition), color var(--std-transition);
-	font-family: "JetBrains Mono NL";
+	font-family: "JetBrains Mono NL", monospace;
 }
 
 html {
