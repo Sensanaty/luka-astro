@@ -30,7 +30,7 @@
     width: 100%;
   }
 
-  header * { font-family: "JetBrains Mono NL"; font-weight: bold; }
+  header * { font-weight: bold; }
 
   nav {
     display: flex;
