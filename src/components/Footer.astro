@@ -1,0 +1,66 @@
+<footer>
+  <img src="/assets/favicon/android-chrome-192x192.png" aria-hidden="true">
+
+  <p class="time"></p>
+
+  <nav>
+    <a href="https://github.com/Sensanaty" target="_blank">github</a>
+    <a href="https://linkedin.com/in/lukasalevic" target="_blank">linkedin</a>
+  </nav>
+  
+  <script>
+    let timeElement = document.getElementsByClassName("time");
+
+    const currentTime = () => {
+      let date = new Date();
+      let seconds = date.getSeconds().toLocaleString();
+      let minutes = date.getMinutes().toLocaleString();
+      let hours = date.getHours().toLocaleString();
+
+      if (seconds.length < 2) { seconds = "0" + seconds }
+      if (minutes.length < 2) { minutes = "0" + minutes }
+      if (hours.length < 2) { hours = "0" + hours }
+
+      return `${hours}:${minutes}:${seconds}`;
+    }
+
+    timeElement[0].innerHTML = currentTime()
+
+    setInterval(() => {
+      timeElement[0].innerHTML = currentTime();
+    }, 1000)
+  </script>
+</footer>
+
+<style>
+  footer {
+    display: grid;
+    grid-template: 1fr / repeat(3, 1fr);
+    align-items: center;
+    background: red;
+    width: 100%;
+    margin: auto 0 0 0;
+    height: 30px;
+    background: var(--bg-highlight);
+    padding: 5px 25px;
+  }
+
+  .time {
+    margin: 0 auto;
+  }
+
+  nav { margin-left: auto }
+
+  img {
+    height: 20px;
+    animation: sway 1000ms linear infinite;
+  }
+
+  @keyframes sway {
+    0% { transform: rotate(0deg) }
+    25% { transform: rotate(45deg) }
+    50% { transform: rotate(0deg) }
+    75% { transform: rotate(-45deg) }
+    100% { transform: rotate(0deg) }
+  }
+</style>
