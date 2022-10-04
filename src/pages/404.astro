@@ -1,12 +1,15 @@
 ---
 import MainHead from "../components/MainHead.astro";
 import Header from "../components/Header.vue";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en">
 	<head>
 		<MainHead title="LUKA | 404" />
 		<style>
+			body { height: 100%; display: flex; flex-flow: column wrap; justify-content: center; align-items: center; }
+
 			h1, h2 { padding: 0; margin: 0; }
 
 			h1 {
@@ -20,12 +23,13 @@ import Header from "../components/Header.vue";
 				font-weight: bold;
 				margin-top: 20px;
 				font-size: 2rem;
-				text-decoration: none;
-				color: green;
+				text-decoration: solid underline 2px var(--accent);
+				color: var(--cl);
 			}
 
 			a:hover {
-				color: darkgreen;
+				color: var(--accent);
+				text-decoration-color: var(--cl);
 			}
 		</style>
 	</head>
@@ -34,5 +38,8 @@ import Header from "../components/Header.vue";
 		<Header client:load/>
 
 		<h1>404</h1>
+		<h2><a href="/">take me back home</a></h2>
+		
+		<Footer />
 	</body>
 </html>

@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 
 <html lang="en">
 	<head>
-		<MainHead title="LUKA" description="Description"/>
+		<MainHead />
 		<style>
 			body { width: 100%; height: 100%; display: flex; flex-flow: column wrap; align-items: center; }
 
@@ -58,8 +58,10 @@ import Footer from "../components/Footer.astro";
 			.logo { height: 12px; user-select: none; }
 			.ruby img { height: 10px; }
 
-			.subtext { display: flex; flex-flow: column wrap; align-items: center; }
-			p { font-size: 1.2rem; margin: 10px 0; }
+			.subtext { display: flex; flex-flow: column wrap; align-items: center; max-width: 70%; }
+			p { font-size: 1.2rem; margin: 10px 0; text-align: center; }
+
+			.contact { font-size: 1.4rem; font-weight: 800; color: var(--accent); background: #191919; padding: 20px }
 		</style>
 	</head>
 
@@ -74,7 +76,8 @@ import Footer from "../components/Footer.astro";
 		<div class="subtext">
 			<p>i love building cool stuff, especially with <span class="ruby lang"><img class="logo" width="10" src="/assets/ruby.svg" aria-hidden="true"> ruby</span> and <span class="js lang"><img class="logo" width="12" src="/assets/js.svg" aria-hidden="true"> javascript</span></p>
 			<p>if you'd like to see my professional history, you can get <a href="/assets/resume.pdf" download="Luka's Resume">my resume here</a></p>
-			<p>if you're still curious and want to find out more or even just want to touch base, feel free to <a href="/contact" target="_blank">contact</a> me</p>
+			<p>if you're still curious and want to find out more, you can reach me down below at</p>
+			<p class="contact">salevic@lu-ka.me</p>
 		</div>
 
 		<Footer />

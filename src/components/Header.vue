@@ -2,12 +2,6 @@
   <header>
     <h1>luka salević<span aria-hidden="true">...</span><span aria-hidden="true" class="i-beam">|</span></h1>
 
-    <nav>
-      <a href="/">home</a>
-      <span class="divider" aria-hidden="true">&middot;</span>
-      <a href="/contact">contact</a>
-    </nav>
-
     <ThemeToggle />
   </header>
 </template>
@@ -21,8 +15,7 @@
 
 <style scoped>
   header {
-    display: grid;
-    grid-template: 1fr / 1fr 1fr 1fr;
+    display: flex;
     flex-flow: row wrap;
     align-items: center;
     background: var(--bg-highlight);
@@ -37,16 +30,6 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-  }
-
-  nav a {
-    color: var(--cl);
-    text-decoration: solid underline var(--accent) 2px;
-  }
-
-  nav a:hover {
-    color: var(--accent);
-    text-decoration: solid underline var(--cl) 2px;
   }
 
   h1 {
