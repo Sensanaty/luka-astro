@@ -3,11 +3,9 @@
     <h1>luka salević<span aria-hidden="true">...</span><span aria-hidden="true" class="i-beam">|</span></h1>
 
     <nav>
-      <a href="/about">about</a>
+      <a href="/">home</a>
       <span class="divider" aria-hidden="true">&middot;</span>
       <a href="/contact">contact</a>
-      <span class="divider" aria-hidden="true">&middot;</span>
-      <a href="/work">work</a>
     </nav>
 
     <ThemeToggle />
