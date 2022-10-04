@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "JetBrains Mono NL";
+  src: url('/assets/fonts/JetBrainsMono-Regular.woff2') format('woff2'),
+       url('/assets/fonts/JetBrainsMono-Regular.woff') format('woff'),
+       url('/assets/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono NL";
+  src: url('/assets/fonts/JetBrainsMonoNL-Bold.woff2') format('woff2'),
+       url('/assets/fonts/JetBrainsMonoNL-Bold.woff') format('woff'),
+       url('/assets/fonts/JetBrainsMonoNL-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono NL";
+  src: url('/assets/fonts/JetBrainsMonoNL-ExtraBold.woff2') format('woff2'),
+       url('/assets/fonts/JetBrainsMonoNL-ExtraBold.woff') format('woff'),
+       url('/assets/fonts/JetBrainsMonoNL-ExtraBold.ttf') format('truetype');
+  font-weight: bolder;
+  font-style: normal;
+  font-display: swap;
+}

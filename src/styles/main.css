@@ -1,5 +1,6 @@
 @import "./normalize.css";
 @import "./variables.css";
+@import "./fonts.css";
 
 * {
 	transition: background var(--std-transition), color var(--std-transition);
