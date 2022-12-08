@@ -1,7 +1,7 @@
 <template>
   <header>
-    <h1>luka salević<span aria-hidden="true">...</span><span aria-hidden="true" class="i-beam">|</span></h1>
-
+    <h1>luka salević<span aria-hidden="true">...</span><span v-if="!trengo" aria-hidden="true" class="i-beam">|</span></h1>
+    <h1 v-if="trengo" class="slightly-smaller">at trengo</h1>
     <ThemeToggle />
   </header>
 </template>
@@ -11,6 +11,9 @@
   import ThemeToggle from "./ThemeToggle.vue";
 
   const showName = ref(true);
+  const props = defineProps({
+    trengo: Boolean
+  });
 </script>
 
 <style scoped>
@@ -37,6 +40,8 @@
     margin: 0;
     padding: 0;
   }
+
+  h1.slightly-smaller { font-size: 1.1rem; margin-left: 3px; }
 
   span { user-select: none; cursor: default; }
   .divider { margin: 0 6px; font-size: 1.15rem; }

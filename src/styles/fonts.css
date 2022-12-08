@@ -27,3 +27,13 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: "Comic Sans";
+  src: url('/assets/fonts/ComicSansMS-Bold.woff2') format('woff2'),
+       url('/assets/fonts/ComicSansMS-Bold.woff') format('woff'),
+       url('/assets/fonts/ComicSansMS-Bold.ttf') format('truetype');
+  font-weight: bolder;
+  font-style: normal;
+  font-display: swap;
+}
