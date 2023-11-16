@@ -5,11 +5,11 @@
 
   --ruby: #EF2F54;
   --accent: #FF9F1C;
-  --std-transition: 70ms ease-in-out;
 }
 
 :root.light {
-  --bg: #EDE7D9;
-  --highlight: #FDFDFD;
+  --bg: #DDD1B6;
+  --highlight: #EDE7D9;
   --cl: #222222;
+  --accent: var(--ruby);
 }
