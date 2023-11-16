@@ -1,0 +1,15 @@
+:root {
+  --bg: #212121;
+  --highlight: #323031;
+  --cl: #FDFDFD;
+
+  --ruby: #EF2F54;
+  --accent: #FF9F1C;
+  --std-transition: 70ms ease-in-out;
+}
+
+:root.light {
+  --bg: #EDE7D9;
+  --highlight: #FDFDFD;
+  --cl: #222222;
+}
