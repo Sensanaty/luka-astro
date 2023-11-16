@@ -1,0 +1,20 @@
+{
+  "baseUrl": ".",
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "allowJs": true,
+    "checkJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "types": ["node"],
+    "plugins": [{ "name": "@astrojs/ts-plugin" }]
+  },
+  "types": ["node"]
+}
