@@ -5,6 +5,9 @@ export default {
 	darkMode: ['class', '.light'],
 	theme: {
 		extend: {
+			textDecorationThickness: {
+				3: '3px'
+			},
 			colors: {
 				'bg': 'var(--bg)',
 				'highlight': 'var(--highlight)',

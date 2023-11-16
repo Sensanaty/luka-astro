@@ -1,6 +1,6 @@
 <template>
   <button
-    class="ml-auto font-black underline decoration-accent decoration-2 hover:text-accent hover:decoration-cl"
+    class="ml-auto font-black underline decoration-accent decoration-3 hover:text-accent hover:decoration-cl"
     @click.prevent="toggleTheme"
   >
     {{ theme }}
