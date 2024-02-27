@@ -14,12 +14,14 @@
       >
     </button>
 
-    <p class="text-sm ml-3 font-black text-accent" v-if="shouldShowTooltip">
-      Click me to
-      <span v-if="shouldAnimate">disable</span>
-      <span v-else>enable</span>
-      the animation!
-    </p>
+    <Transition mode="out-in">
+      <p class="text-sm ml-3 font-black text-accent" v-if="shouldShowTooltip">
+        Click me to
+        <span v-if="shouldAnimate">disable</span>
+        <span v-else>enable</span>
+        the animation!
+      </p>
+    </Transition>
   </div>
 </template>
 
@@ -61,5 +63,15 @@ const toggleAnimation = () => {
   50% { transform: rotate(1deg) }
   75% { transform: rotate(-39deg) }
   100% { transform: rotate(0deg) }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.1s ease-in-out;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
