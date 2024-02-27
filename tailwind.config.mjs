@@ -14,6 +14,7 @@ export default {
 				'cl': 'var(--cl)',
 				'accent': 'var(--accent)',
 				'ruby': 'var(--ruby)',
+				'orange': 'var(--orange)',
 			}
 		},
 	},
