@@ -4,15 +4,15 @@ import ThemeToggle from "@/components/Base/ThemeToggle.vue";
 const path = new URL(Astro.request.url).pathname;
 ---
 
-<header class="flex w-full flex-row items-center bg-highlight px-4 py-2 transition-colors">
-  <h1 class="basis-1/3 text-lg font-black">Luka Salević</h1>
+<header class="flex w-full flex-row items-center bg-highlight px-4 py-2 transition-colors sm:py-3">
+  <h1 class="basis-1/3 text-lg font-black sm:hidden sm:basis-1/2">Luka Salević</h1>
 
-  <nav class="basis-1/3 text-center">
+  <nav class="basis-1/3 text-center sm:basis-1/2 sm:text-start">
     <a class={path === "/" ? "active" : ""} href="/">home</a>
     <a class={path === "/shenanigans" ? "active" : ""} href="/shenanigans">shenanigans</a>
   </nav>
 
-  <div class="basis-1/3 text-end">
+  <div class="basis-1/3 text-end sm:basis-1/2">
     <ThemeToggle client:only="vue" />
   </div>
 </header>
