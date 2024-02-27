@@ -4,12 +4,12 @@ import ThemeToggle from "@/components/Base/ThemeToggle.vue";
 const path = new URL(Astro.request.url).pathname;
 ---
 
-<header class="flex flex-row w-full items-center bg-highlight py-2 px-4 transition-colors">
-  <h1 class="font-black text-lg basis-1/3">Luka Salević</h1>
+<header class="flex w-full flex-row items-center bg-highlight px-4 py-2 transition-colors">
+  <h1 class="basis-1/3 text-lg font-black">Luka Salević</h1>
 
   <nav class="basis-1/3 text-center">
-    <a class={path === '/' ? 'active' : ''} href="/">home</a>
-    <a class={path === '/shenanigans' ? 'active' : '' } href="/shenanigans">shenanigans</a>
+    <a class={path === "/" ? "active" : ""} href="/">home</a>
+    <a class={path === "/shenanigans" ? "active" : ""} href="/shenanigans">shenanigans</a>
   </nav>
 
   <div class="basis-1/3 text-end">
@@ -19,7 +19,7 @@ const path = new URL(Astro.request.url).pathname;
 
 <style>
   a {
-    @apply mx-1.5 font-bold underline decoration-3 decoration-accent hover:text-accent hover:decoration-cl;
+    @apply mx-1.5 font-bold underline decoration-accent decoration-3 hover:text-accent hover:decoration-cl;
   }
 
   a.active {

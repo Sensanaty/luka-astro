@@ -11,11 +11,11 @@
         @click.prevent="toggleAnimation"
         src="/favicon/android-chrome-192x192.png"
         alt="A pixelated cartoon monkey face (Luka's avatar on many social media sites)"
-      >
+      />
     </button>
 
     <Transition mode="out-in">
-      <p class="text-sm ml-3 font-black text-accent" v-if="shouldShowTooltip">
+      <p class="ml-3 text-sm font-black text-accent" v-if="shouldShowTooltip">
         Click me to
         <span v-if="shouldAnimate">disable</span>
         <span v-else>enable</span>
@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted, ref} from "vue";
+import { onMounted, ref } from "vue";
 
 const shouldShowTooltip = ref(false);
 const monkey = ref<HTMLInputElement | null>(null);
@@ -43,13 +43,13 @@ onMounted(() => {
     monkey.value?.classList.add("animate");
     shouldAnimate.value = true;
   }
-})
+});
 
 const toggleAnimation = () => {
   monkey.value?.classList.toggle("animate");
   shouldAnimate.value = !shouldAnimate.value;
   shouldAnimate ? localStorage.removeItem("noAnimate") : localStorage.setItem("noAnimate", "true");
-}
+};
 </script>
 
 <style>
@@ -58,11 +58,21 @@ const toggleAnimation = () => {
 }
 
 @keyframes sway {
-  0% { transform: rotate(0deg) }
-  25% { transform: rotate(53deg) }
-  50% { transform: rotate(1deg) }
-  75% { transform: rotate(-39deg) }
-  100% { transform: rotate(0deg) }
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(53deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-39deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .v-enter-active,

@@ -2,11 +2,21 @@
 import SpinningMonke from "@/components/SpinningMonke.vue";
 ---
 
-<footer class="mt-auto flex flex-row w-full py-2 px-4 items-center bg-highlight transition-colors">
+<footer class="mt-auto flex w-full flex-row items-center bg-highlight px-4 py-2 transition-colors">
   <SpinningMonke client:only="vue" />
 
   <nav class="ml-auto">
-    <a class="font-black text-lg mx-1.5 decoration-3 underline decoration-accent hover:decoration-cl hover:text-accent" href="https://github.com/Sensanaty" target="_blank" rel="noreferrer">github</a>
-    <a class="font-black text-lg mx-1.5 decoration-3 underline decoration-accent hover:decoration-cl hover:text-accent" href="https://linkedin.com/in/lukasalevic" target="_blank" rel="noreferrer">linkedin</a>
+    <a
+      class="mx-1.5 text-lg font-black underline decoration-accent decoration-3 hover:text-accent hover:decoration-cl"
+      href="https://github.com/Sensanaty"
+      target="_blank"
+      rel="noreferrer">github</a
+    >
+    <a
+      class="mx-1.5 text-lg font-black underline decoration-accent decoration-3 hover:text-accent hover:decoration-cl"
+      href="https://linkedin.com/in/lukasalevic"
+      target="_blank"
+      rel="noreferrer">linkedin</a
+    >
   </nav>
 </footer>

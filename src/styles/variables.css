@@ -1,16 +1,16 @@
 :root {
   --bg: #212121;
   --highlight: #323031;
-  --cl: #FDFDFD;
+  --cl: #fdfdfd;
 
-  --ruby: #EF2F54;
-  --accent: #FF9F1C;
-  --orange: #FF9F1C;
+  --ruby: #ef2f54;
+  --accent: #ff9f1c;
+  --orange: #ff9f1c;
 }
 
 :root.light {
-  --bg: #DDD1B6;
-  --highlight: #EDE7D9;
+  --bg: #ddd1b6;
+  --highlight: #ede7d9;
   --cl: #222222;
   --accent: var(--ruby);
 }

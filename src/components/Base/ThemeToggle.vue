@@ -12,7 +12,7 @@ import { onMounted, ref } from "vue";
 
 const theme = ref<"dark" | "light">("dark");
 
-onMounted(() => theme.value = document.documentElement.classList.contains("light") ? "light" : "dark");
+onMounted(() => (theme.value = document.documentElement.classList.contains("light") ? "light" : "dark"));
 
 const toggleTheme = () => {
   const rootElement = document.documentElement;
@@ -25,5 +25,5 @@ const toggleTheme = () => {
     localStorage.setItem("theme", "dark");
     theme.value = "dark";
   }
-}
+};
 </script>
