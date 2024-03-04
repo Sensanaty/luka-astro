@@ -1,6 +1,6 @@
 <template>
   <div class="relative mx-auto flex w-fit flex-row items-center text-xl font-black text-accent">
-    <p class="border-r-2 border-bg bg-highlight px-3 py-4">salevic@lu-ka.me</p>
+    <p class="border-r-2 border-bg bg-highlight px-3 py-4 transition-colors">salevic@lu-ka.me</p>
 
     <button class="bg-highlight px-3 py-4 transition-colors hover:bg-zinc-700 active:bg-zinc-600" @click.prevent="copy">
       copy me
