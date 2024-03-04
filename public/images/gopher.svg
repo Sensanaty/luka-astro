@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 402 560">
+	<path fill="#F6D2A2" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-width="3" d="M11 300c0 16 16 9 23 4s9-1 10-10v-18c-10-1-21 1-29 7-5 4-13 14-4 17" clip-rule="evenodd"/>
+  <path fill="#6AD7E5" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-width="3" d="M47 113c-60-17-15-94 33-62l-33 62zm268-68c48-34 91 42 35 61l-35-61z" clip-rule="evenodd"/>
+  <path fill="#F6D2A2" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-width="3" d="M325 494c12 8 34 31 16 42-17 16-27-18-42-23 6-9 15-17 26-19z" clip-rule="evenodd"/>
+  <path fill="none" stroke="#000" stroke-linecap="round" stroke-width="3" d="M341 536c-2-6-3-12-8-16" clip-rule="evenodd"/>
+  <path fill="#F6D2A2" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-width="3" d="M109 520c-15 2-23 15-35 22-11 6-15-3-16-4l-4-2c-11-17 11-29 22-37 15-3 24 10 33 21z" clip-rule="evenodd"/>
+  <path fill="none" stroke="#000" stroke-linecap="round" stroke-width="3" d="M58 538c1-7 6-11 8-16" clip-rule="evenodd"/>
+  <path fill-rule="evenodd" d="M50 92c-8-5-14-10-9-19 4-9 12-8 20-4L50 92zm288-8c8-5 14-10 9-19s-13-8-21-4l12 23z" clip-rule="evenodd"/>
+  <path fill="#F6D2A2" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-width="3" d="M392 298c0 16-16 9-23 4s-9-1-9-10c-1-6-2-12-1-18 10-1 21 1 30 7 4 4 12 14 3 17" clip-rule="evenodd"/>
+  <path fill="#6AD7E5" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-width="3" d="M196 13c60 0 116 9 146 67 26 65 17 135 21 204 4 59 11 127-16 181-29 58-101 72-160 70-47-1-103-17-129-59-31-50-16-124-14-180 2-66-18-132 4-196 22-67 82-82 148-87" clip-rule="evenodd"/>
+  <path fill="#FFF" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-width="2.9" d="M206 94c11 63 114 47 99-17-13-57-102-41-99 17" clip-rule="evenodd"/>
+  <path fill="#FFF" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-width="2.8" d="M83 104c14 55 102 41 99-14-4-66-112-53-99 14" clip-rule="evenodd"/>
+  <path fill="#FFF" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-width="3" d="M219 170v26c-2 4-6 4-10 6-5-1-9-4-11-9-1-10 1-19 1-29l20 6z" clip-rule="evenodd"/>
+  <g fill-rule="evenodd" clip-rule="evenodd"><ellipse cx="107.3" cy="95.4" rx="14.8" ry="16.1"/>
+    <ellipse cx="114.1" cy="99" fill="#FFF" rx="3.5" ry="4.1"/>
+	</g>
+  <g fill-rule="evenodd" clip-rule="evenodd"><ellipse cx="231.6" cy="91.4" rx="14.6" ry="16.1"/>
+    <ellipse cx="238.2" cy="95" fill="#FFF" rx="3.4" ry="4.1"/>
+	</g>
+  <path fill="#FFF" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-width="3" d="M176 169c-6 16 4 47 21 24-1-10 1-20 1-30l-22 6z" clip-rule="evenodd"/>
+  <g fill-rule="evenodd" clip-rule="evenodd"><path fill="#F6D2A2" stroke="#231F20" stroke-linecap="round" stroke-width="3" d="M178 139c-12 1-21 15-15 26 8 15 27-1 38 1 13 0 24 14 35 2 12-13-5-25-18-31l-40 2z"/>
+    <path d="M177 138c-1-21 39-23 44-6 4 17-42 22-44 6-2-12 0 0 0 0z"/>
+	</g>
+</svg>
