@@ -2,6 +2,16 @@
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import "@/styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const {
+  title = "LUKA SALEVIĆ",
+  description = "Lover of Ruby & Rails, Vue, and all manners of shenanigans involving technology",
+} = Astro.props;
 ---
 
 <html lang="en" class="h-full" style="scrollbar-gutter: stable;">
@@ -13,31 +23,22 @@ import "@/styles/global.css";
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
 
-    <title>LUKA SALEVIĆ</title>
-    <meta name="title" content="LUKA SALEVIĆ" />
-    <meta
-      name="description"
-      content="Lover of Ruby & Rails, Vue, and all manners of shenanigans involving technology"
-    />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lu-ka.me" />
-    <meta property="og:title" content="LUKA SALEVIĆ" />
-    <meta
-      property="og:description"
-      content="Lover of Ruby & Rails, Vue, and all manners of shenanigans involving technology"
-    />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content="/images/banner.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://lu-ka.me" />
-    <meta property="twitter:title" content="LUKA SALEVIĆ" />
-    <meta
-      property="twitter:description"
-      content="Lover of Ruby & Rails, Vue, and all manners of shenanigans involving technology"
-    />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="/images/banner.png" />
 
     <script is:inline>
@@ -56,6 +57,8 @@ import "@/styles/global.css";
         rootElement.classList.add("light");
       }
     </script>
+
+    <slot name="head" />
   </head>
 
   <body class="flex h-full flex-col bg-bg text-cl transition-colors">
