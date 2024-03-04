@@ -1,7 +1,83 @@
 ---
 import IndexLayout from "@/layouts/IndexLayout.astro";
+import EmailCopier from "@/components/EmailCopier.vue";
 ---
 
 <IndexLayout>
-  <h1>Slotted Content</h1>
+  <div class="mx-auto mt-6 flex w-2/3 flex-col bg-highlight px-6 py-5 md:w-full">
+    <h1 class="mb-9 text-center text-3xl font-black md:text-2xl">
+      Hi there, I'm <span id="luka" class="text-accent">Luka</span>
+    </h1>
+
+    <h2 class="text-center text-2xl font-black md:text-xl">
+      Fullstack software engineer, currently working at
+      <a
+        href="https://trengo.com"
+        target="_blank"
+        rel="noopener"
+        class="mx-1.5 cursor-pointer font-bold underline decoration-accent decoration-3 hover:text-accent hover:decoration-cl"
+      >
+        Trengo
+      </a>
+    </h2>
+  </div>
+
+  <div class="mx-auto mt-5 flex w-2/3 flex-col text-center text-lg md:w-[95%]">
+    <p>
+      I love building out cool stuff, mostly in
+      <span class="lang text-ruby">
+        <img src="/images/ruby.svg" aria-hidden="true" alt="" /> Ruby
+      </span> &
+      <span class="lang inline-flex flex-row items-center text-orange">
+        <img src="/images/javascript.svg" aria-hidden="true" alt="" /> JS
+      </span>
+    </p>
+
+    <p>
+      I've also been experimenting with
+      <span>
+        <span class="lang text-go">
+          <img src="/images/gopher.svg" aria-hidden="true" alt="" /> Go
+        </span> &
+        <span class="lang text-rust">
+          <img src="/images/rust.svg" aria-hidden="true" alt="" /> Rust
+        </span> lately to expand my horizons
+      </span>
+    </p>
+
+    <p>
+      You can download
+      <a
+        class="cursor-pointer font-bold underline decoration-accent decoration-3 hover:text-accent hover:decoration-cl"
+      >
+        my resume</a
+      > if you'd like to view my professional history
+    </p>
+
+    <p>Feel free to reach out to me at the email down below if you have any questions</p>
+  </div>
+
+  <EmailCopier class="mt-4" client:only="vue" />
 </IndexLayout>
+
+<style>
+  #luka {
+    text-shadow:
+      1px 1px 1px black,
+      1px 2px 1px black,
+      1px 3px 1px black,
+      1px 4px 1px black;
+  }
+
+  p {
+    @apply mx-auto mb-3 font-black sm:text-sm;
+  }
+
+  .lang {
+    @apply inline-flex flex-row items-center;
+  }
+
+  img {
+    @apply pointer-events-none mr-1.5 h-[0.8rem] w-[0.8rem] select-none;
+  }
+</style>
