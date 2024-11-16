@@ -8,8 +8,8 @@ const currentPath = Astro.url.pathname;
 
 const cwd = () => {
   if (currentPath === "/") return "home";
-  return `home${currentPath}`
-}
+  return `home${currentPath}`;
+};
 
 const navItems = [
   { path: "/", label: "home" },
@@ -19,14 +19,14 @@ const navItems = [
 const publicNavItems = [
   { path: "https://github.com/Sensanaty", label: "github" },
   { path: "https://linkedin.com/in/lukasalevic", label: "linkedin" },
-]
+];
 
 function getNavClass(path: string) {
   const base = "font-bold hover:text-amber-500 hover:decoration-white";
   const active = "text-amber-500";
   const inactive = "text-white underline decoration-2 decoration-amber-500";
 
-  return `${base} ${currentPath === path ? active : inactive}`
+  return `${base} ${currentPath === path ? active : inactive}`;
 }
 ---
 
@@ -54,7 +54,7 @@ function getNavClass(path: string) {
 
     </header>
 
-    <main class="flex-grow">
+    <main class="flex-grow py-1.5 px-3">
       <slot />
     </main>
 
@@ -83,6 +83,7 @@ function getNavClass(path: string) {
 
   @media (prefers-reduced-motion: reduce) {
     .blink::after {
+      display: none;
       animation: none;
       content: none;
     }
