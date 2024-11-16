@@ -2,7 +2,7 @@
 import { ViewTransitions } from "astro:transitions";
 import MonkeSpin from "../components/MonkeSpin.svelte";
 
-const { title = "LUKA" } = Astro.props;
+const { title = "LUKA", currentPage = "/"} = Astro.props;
 
 const currentPath = Astro.url.pathname;
 
@@ -26,7 +26,7 @@ function getNavClass(path: string) {
   const active = "text-amber-500";
   const inactive = "text-white underline decoration-2 decoration-amber-500";
 
-  return `${base} ${currentPath === path ? active : inactive}`;
+  return `${base} ${currentPage === path ? active : inactive}`;
 }
 ---
 
