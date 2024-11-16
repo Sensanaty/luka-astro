@@ -1,0 +1,29 @@
+---
+import {ViewTransitions} from "astro:transitions";
+---
+
+<html lang="en" class="bg-neutral-900 text-neutral-50 font-mono" style="scrollbar-gutter: stable;">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <title>LUKA - 404</title>
+
+    <ViewTransitions />
+  </head>
+
+  <body class="flex flex-col items-center overflow-hidden">
+    <div class="absolute inset-0 grid grid-cols-12 gap-4 select-none -z-10" aria-hidden="true">
+      {Array.from({ length: 192 }).map(() => (
+        <div class="text-[4vw] font-bold text-amber-500 opacity-5 rotate-[23deg]">
+          404
+        </div>
+      ))}
+    </div>
+
+    <img src="/big-monkey.png" width="128" class="rotate-180 mt-12" alt="An upside-down pixelated monkey mask.">
+
+    <h1 class="text-3xl font-bold mt-4">Seems you got lost</h1>
+    <a class="text-2xl cursor-pointer font-bold mt-3 underline decoration-4 decoration-amber-500 hover:text-amber-500 hover:decoration-white" href="/">Go home?</a>
+  </body>
+</html>
