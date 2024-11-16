@@ -1,7 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ShenaniganCard from '../components/ShenaniganCard.astro';
+
+// Get all posts from /shenanigans/ directory
+const posts = await Astro.glob('./shenanigans/*.{md,mdx}');
 ---
 
 <BaseLayout title="LUKA - Shenanigans" currentPage="/shenanigans">
-  <h1>Shenanigans</h1>
+  <h1 class="font-sans">
+    This page serves mostly as a central hub for whatever random small project I have in mind that I want to play with,
+    be it WebGL experiemnts, random canvas stuff, or some random node packages. It's not updated often, and I mostly
+    only use this locally, but every once in a while I'll push something up when I feel like it.
+  </h1>
+
+  <div class="grid grid-cols-3 gap-x-4 gap-y-2.5 md:grid-cols-1 mt-4">
+    {posts.map((post) => (
+      <ShenaniganCard title={post.frontmatter.title} url={post.url} description={post.frontmatter.description} />
+    ))}
+  </div>
 </BaseLayout>
