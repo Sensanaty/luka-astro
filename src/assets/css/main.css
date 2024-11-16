@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Berkeley Mono Variable";
+    src: url("/fonts/BerkeleyRegular.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Berkeley Mono Variable";
+    src: url("/fonts/BerkeleyItalic.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: "Helvetica Now Display";
+    src: url("/fonts/Now.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: italic;
+  }
+}
