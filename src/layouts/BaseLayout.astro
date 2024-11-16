@@ -18,12 +18,12 @@ const { title = "LUKA", currentPage = "/"} = Astro.props;
 </head>
 
 <body class="flex flex-col min-h-screen">
-<MainHeader currentPage={currentPage} />
+  <MainHeader currentPage={currentPage} />
 
-<main class="flex-grow py-1.5 px-3">
-  <slot />
-</main>
+  <main class="flex-grow py-1.5 px-3">
+    <slot />
+  </main>
 
-<MainFooter transition:persist/>
-</body>
+  <MainFooter transition:persist/>
+  </body>
 </html>

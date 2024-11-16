@@ -18,7 +18,16 @@ function getNavClass(path: string) {
   const active = "text-amber-500";
   const inactive = "text-white underline decoration-2 decoration-amber-500";
 
-  return `${base} ${currentPage === path ? active : inactive}`;
+  // For home path
+  if (path === '/') {
+    // Active only if exactly at home
+    if (currentPath === '/') return `${base} ${active}`;
+    // Always underlined when not at home
+    return `${base} ${inactive}`;
+  }
+
+  // For other paths
+  return `${base} ${currentPath.startsWith(path) ? active : inactive}`;
 }
 ---
 
@@ -29,7 +38,7 @@ function getNavClass(path: string) {
 
   <nav class="flex items-center gap-x-2 ml-auto">
     {navItems.map(({ path, label }) => (
-        <a href={path} class={getNavClass(path)}>{label}</a>
+      <a href={path} class={getNavClass(path)}>{label}</a>
     ))}
   </nav>
 </header>
