@@ -1,97 +1,29 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import MonkeSpin from "../components/MonkeSpin.svelte";
+import MainHeader from "../components/MainHeader.astro";
+import MainFooter from "../components/MainFooter.astro";
 import "../assets/css/main.css";
 
 const { title = "LUKA", currentPage = "/"} = Astro.props;
-
-const currentPath = Astro.url.pathname;
-
-const cwd = () => {
-  if (currentPath === "/") return "home";
-  return `home${currentPath}`;
-};
-
-const navItems = [
-  { path: "/", label: "home" },
-  { path: "/shenanigans", label: "shenanigans" },
-];
-
-const publicNavItems = [
-  { path: "https://github.com/Sensanaty", label: "github" },
-  { path: "https://linkedin.com/in/lukasalevic", label: "linkedin" },
-];
-
-function getNavClass(path: string) {
-  const base = "font-bold hover:text-amber-500 hover:decoration-white";
-  const active = "text-amber-500";
-  const inactive = "text-white underline decoration-2 decoration-amber-500";
-
-  return `${base} ${currentPage === path ? active : inactive}`;
-}
 ---
 
 <html lang="en" class="bg-neutral-900 text-neutral-50 font-mono" style="scrollbar-gutter: stable;">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width" />
+  <title>{title}</title>
 
-    <ViewTransitions />
-  </head>
+  <ViewTransitions />
+</head>
 
-  <body class="flex flex-col min-h-screen">
-    <header class="flex items-center bg-neutral-800 border-b border-x w-full px-3 pt-1 pb-0.5">
-      <p class="blink font-black text-sm" aria-label="Luka Salević">
-        luka-salević <span aria-hidden="true" class="md:hidden">~/{cwd}</span>
-      </p>
+<body class="flex flex-col min-h-screen">
+<MainHeader currentPage={currentPage} />
 
-      <nav class="flex items-center gap-x-2 ml-auto">
-        {navItems.map(({ path, label }) => (
-          <a href={path} class={getNavClass(path)}>{label}</a>
-        ))}
-      </nav>
+<main class="flex-grow py-1.5 px-3">
+  <slot />
+</main>
 
-    </header>
-
-    <main class="flex-grow py-1.5 px-3">
-      <slot />
-    </main>
-
-    <footer class="flex items-center bg-neutral-800 border-t border-x w-full px-3 py-1.5" transition:persist>
-      <MonkeSpin client:only="svelte" />
-
-      <nav class="flex items-center gap-x-2 ml-auto">
-        {publicNavItems.map(({ path, label }) => (
-          <a href={path} class={getNavClass(path)} target="_blank" rel="noreferrer">{label}</a>
-        ))}
-      </nav>
-    </footer>
-  </body>
+<MainFooter transition:persist/>
+</body>
 </html>
-
-<style>
-  header {
-    grid-template: 1fr / 1fr min-content 1fr;
-  }
-
-  .blink::after {
-    @apply text-neutral-400 -ml-1.5;
-    content: "▋";
-    animation: blink 900ms step-end infinite;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .blink::after {
-      display: none;
-      animation: none;
-      content: none;
-    }
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-</style>

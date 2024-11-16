@@ -1,0 +1,28 @@
+---
+import MonkeSpin from "../components/MonkeSpin.svelte";
+
+const { currentPage = "/"} = Astro.props;
+
+const publicNavItems = [
+  { path: "https://github.com/Sensanaty", label: "github" },
+  { path: "https://linkedin.com/in/lukasalevic", label: "linkedin" },
+];
+
+function getNavClass(path: string) {
+  const base = "font-bold hover:text-amber-500 hover:decoration-white";
+  const active = "text-amber-500";
+  const inactive = "text-white underline decoration-2 decoration-amber-500";
+
+  return `${base} ${currentPage === path ? active : inactive}`;
+}
+---
+
+<footer class="flex items-center bg-neutral-800 border-t border-x w-full px-3 py-1.5">
+  <MonkeSpin client:only="svelte" />
+
+  <nav class="flex items-center gap-x-2 ml-auto">
+    {publicNavItems.map(({ path, label }) => (
+      <a href={path} class={getNavClass(path)} target="_blank" rel="noreferrer">{label}</a>
+    ))}
+  </nav>
+</footer>

@@ -1,0 +1,60 @@
+---
+const { currentPage = "/"} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+
+const cwd = () => {
+  if (currentPath === "/") return "home";
+  return `home${currentPath}`;
+};
+
+const navItems = [
+  { path: "/", label: "home" },
+  { path: "/shenanigans", label: "shenanigans" },
+];
+
+function getNavClass(path: string) {
+  const base = "font-bold hover:text-amber-500 hover:decoration-white";
+  const active = "text-amber-500";
+  const inactive = "text-white underline decoration-2 decoration-amber-500";
+
+  return `${base} ${currentPage === path ? active : inactive}`;
+}
+---
+
+<header class="flex items-center bg-neutral-800 border-b border-x w-full px-3 pt-1 pb-0.5">
+  <p class="blink font-black text-sm" aria-label="Luka Salević">
+    luka-salević <span aria-hidden="true" class="md:hidden">~/{cwd}</span>
+  </p>
+
+  <nav class="flex items-center gap-x-2 ml-auto">
+    {navItems.map(({ path, label }) => (
+        <a href={path} class={getNavClass(path)}>{label}</a>
+    ))}
+  </nav>
+</header>
+
+<style>
+  header {
+    grid-template: 1fr / 1fr min-content 1fr;
+  }
+
+  .blink::after {
+    @apply text-neutral-400 -ml-1.5;
+    content: "▋";
+    animation: blink 900ms step-end infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blink::after {
+      display: none;
+      animation: none;
+      content: none;
+    }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
