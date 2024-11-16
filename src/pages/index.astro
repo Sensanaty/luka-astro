@@ -1,7 +1,41 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import EmailCopier from "../components/EmailCopier.svelte";
 ---
 
 <BaseLayout>
-	<h1>hello there</h1>
+  <div class="flex flex-col font-sans">
+    <h1 class="text-3xl font-bold font-sans mb-3">
+      Hi there, I'm <span class="text-4xl font-black text-amber-500 drop-shadow-[1px_1px_0] tracking-wider">LUKA</span>
+    </h1>
+
+    <h2 class="text-2xl">I'm a fullstack engineer working at <a href="https://trengo.com" target="_blank" rel="noopener">Trengo</a> in Utrecht.</h2>
+
+    <p class="flex items-center mt-2.5 md:hidden">
+      I love tinkering with tech and building cool stuff, especially with
+      <span class="flex">
+        <span class="flex items-center text-rose-600 font-bold mx-1"><img src="/images/ruby.svg" width="16" aria-hidden="true">&nbsp;Ruby</span>
+        and
+        <span class="flex items-center text-[#3178c6] font-bold mx-1"><img src="/images/ts.svg" width="16" aria-hidden="true">&nbsp;TypeScript</span>.
+      </span>
+    </p>
+
+    <p class="mt-2.5 hidden md:block">
+      I love tinkering with tech and building cool stuff, especially with
+      <span class="text-rose-600 font-bold mx-1">Ruby</span>
+      and
+      <span class="text-[#3178c6] font-bold mx-1">TypeScript</span>.
+    </p>
+
+    <p class="mt-2.5">If you're curious about my professional history, you can grab <a href="/assets/resume.pdf" download="Luka Salevic's Resume">my resume here</a>.</p>
+    <p class="mt-2.5">If you'd like to get in contact with me, feel free to shoot me a message at my email below.</p>
+
+    <EmailCopier client:only="svelte" />
+  </div>
 </BaseLayout>
+
+<style>
+  a {
+    @apply underline decoration-2 cursor-pointer decoration-amber-500 hover:text-amber-500 hover:decoration-white font-mono;
+  }
+</style>
