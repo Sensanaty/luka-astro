@@ -4,38 +4,43 @@ import EmailCopier from "@/components/EmailCopier.svelte";
 ---
 
 <BaseLayout>
-  <div class="flex flex-col font-sans">
-    <h1 class="text-3xl font-bold font-sans mb-3">
-      Hi there, I'm <span class="text-4xl font-black text-amber-500 drop-shadow-[1px_1px_0] tracking-wider">LUKA</span>
-    </h1>
+  <div class="flex flex-col font-sans items-center">
 
-    <h2 class="text-2xl">I'm a fullstack engineer working at <a href="https://trengo.com" target="_blank" rel="noopener">Trengo</a> in Utrecht.</h2>
+    <div class="flex flex-col bg-neutral-800 border py-2 px-4 md:w-full">
+      <h1 class="text-4xl font-bold font-sans mb-3 text-center">
+        Hi there, I'm <span class="text-5xl font-black text-amber-500 drop-shadow-[4px_3px_0_#0a0a0a] tracking-wider">LUKA</span>
+      </h1>
 
-    <p class="flex items-center mt-2.5 md:hidden">
-      I love tinkering with tech and building cool stuff, especially with
-      <span class="flex">
+      <h2 class="text-3xl md:text-xl text-center">I'm a fullstack engineer working at <a href="https://trengo.com" class="font-bold" target="_blank" rel="noopener">Trengo</a> in Utrecht.</h2>
+    </div>
+
+    <div class="flex flex-col bg-neutral-800 border py-2 px-4 mt-4 text-center">
+      <p class="flex items-center md:hidden">
+        I love tinkering with tech and building cool stuff, especially with
+        <span class="flex">
         <span class="flex items-center text-rose-600 font-bold mx-1"><img src="/images/ruby.svg" width="16" aria-hidden="true">&nbsp;Ruby</span>
         and
         <span class="flex items-center text-[#3178c6] font-bold mx-1"><img src="/images/ts.svg" width="16" aria-hidden="true">&nbsp;TypeScript</span>.
       </span>
-    </p>
+      </p>
 
-    <p class="mt-2.5 hidden md:block">
-      I love tinkering with tech and building cool stuff, especially with
-      <span class="text-rose-600 font-bold mx-1">Ruby</span>
-      and
-      <span class="text-[#3178c6] font-bold mx-1">TypeScript</span>.
-    </p>
+      <p class="hidden md:block">
+        I love tinkering with tech and building cool stuff, especially with
+        <span class="text-rose-600 font-bold mx-1">Ruby</span>
+        and
+        <span class="text-[#3178c6] font-bold mx-1">TypeScript</span>.
+      </p>
 
-    <p class="mt-2.5">If you're curious about my professional history, you can grab <a href="/assets/resume.pdf" download="Luka Salevic's Resume">my resume here</a>.</p>
-    <p class="mt-2.5">If you'd like to get in contact with me, feel free to shoot me a message at my email below.</p>
+      <p class="mt-3">If you're curious about my professional history, you can grab <a href="/assets/resume.pdf" download="Luka Salevic's Resume">my resume here</a>.</p>
 
-    <EmailCopier client:only="svelte" />
+      <p class="mt-3">If you'd like to get in contact with me, feel free to shoot me a message at my email below.</p>
+      <EmailCopier client:only="svelte" />
+    </div>
   </div>
 </BaseLayout>
 
 <style>
   a {
-    @apply underline decoration-2 cursor-pointer decoration-amber-500 hover:text-amber-500 hover:decoration-white font-mono;
+    @apply underline decoration-2 cursor-pointer decoration-amber-500 hover:text-amber-500 hover:decoration-white;
   }
 </style>

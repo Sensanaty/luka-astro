@@ -1,73 +1,117 @@
 ---
-const currentPath = Astro.url.pathname;
-
-const navItems = [
-  { path: "/", label: "home" },
-  { path: "/shenanigans", label: "shenanigans" },
-];
-
-function getNavClass(path: string) {
-  const base = "font-bold hover:text-amber-500 hover:decoration-white";
-  const active = "text-amber-500";
-  const inactive = "text-white underline decoration-2 decoration-amber-500";
-
-  // For home path
-  if (path === '/') {
-    // Active only if exactly at home
-    if (currentPath === '/') return `${base} ${active}`;
-    // Always underlined when not at home
-    return `${base} ${inactive}`;
-  }
-
-  // For other paths
-  return `${base} ${currentPath.startsWith(path) ? active : inactive}`;
+type BreadcrumbPart = {
+  label: string;
+  path: string;
+  isHome: boolean;
+  isActive: boolean;
+  isShenanigans?: boolean;
 }
 
-const getBreadcrumbParts = () => {
-  if (currentPath === "/") return [{ label: "home", path: "/" }];
+const currentPath = Astro.url.pathname;
 
-  // Split the path and create breadcrumb items
-  const parts = currentPath.split('/').filter(Boolean);
-  return [
-    { label: "home", path: "/" },
-    ...parts.map((part, index) => ({
-      label: part,
-      path: '/' + parts.slice(0, index + 1).join('/')
-    }))
+const getBreadcrumbParts = (): BreadcrumbPart[] => {
+  const parts: string[] = currentPath.split('/').filter(Boolean);
+  const isInShenanigans: boolean = currentPath.startsWith('/shenanigans');
+
+  const baseParts: BreadcrumbPart[] = [
+    {
+      label: "home",
+      path: "/",
+      isHome: true,
+      isActive: currentPath === "/",
+    },
+    {
+      label: "shenanigans",
+      path: "/shenanigans",
+      isActive: currentPath === "/shenanigans",
+      isHome: false,
+      isShenanigans: true
+    }
   ];
+
+  if (isInShenanigans && parts.length > 1) {
+    return [
+      ...baseParts,
+      ...parts.slice(1).map((part: string, index: number) => {
+        const fullPath = `/shenanigans/${parts.slice(1, index + 2).join('/')}`;
+        return {
+          label: part,
+          path: fullPath,
+          isActive: fullPath === currentPath,
+          isHome: false,
+        };
+      })
+    ];
+  }
+
+  return baseParts;
 };
 
-const breadcrumbParts = getBreadcrumbParts();
+function getTextColorClass(part: BreadcrumbPart): string {
+  if (part.isHome) {
+    if (part.isActive) {
+      return 'text-amber-500';
+    } else {
+      return 'text-white';
+    }
+  }
+
+  if (part.isShenanigans) {
+    if (part.isActive) {
+      return 'text-amber-500';
+    }
+    if (currentPath.startsWith('/shenanigans/')) {
+      return 'text-white';
+    }
+    return 'text-neutral-400';
+  }
+
+  if (part.isActive) {
+    return 'text-amber-500';
+  } else {
+    return 'text-neutral-400';
+  }
+}
+
+const breadcrumbParts: BreadcrumbPart[] = getBreadcrumbParts();
 ---
 
 <header class="flex items-center bg-neutral-800 border-b border-x w-full px-3 pt-1 pb-0.5">
-  <p class="flex items-center font-black text-sm" aria-label="Luka Salević">
+  <p class="font-black text-sm flex items-center gap-3" aria-label="Luka Salević">
     luka-salević
-    <span aria-hidden="true" class="blink ml-3 md:hidden flex items-center">
-      ~/
-      {breadcrumbParts.map((part, index) => (
-          <>
-            <a href={part.path} class="hover:text-amber-500">{part.label}</a>
-            {index < breadcrumbParts.length - 1 && (
-              <span>/</span>
-            )}
-          </>
-      ))}
-    </span>
   </p>
 
-  <nav class="flex items-center gap-x-2 ml-auto">
-    {navItems.map(({ path, label }) => (
-      <a href={path} class={getNavClass(path)}>{label}</a>
-    ))}
+  <nav aria-label="Breadcrumb" class="blink flex items-center ml-4">
+    <span aria-hidden="true">~/</span>
+
+    <ol class="flex">
+      {breadcrumbParts.map((part, index) => (
+        <li class="flex items-center">
+          {part.isActive ? (
+            <a
+              href={part.path}
+              class={`${getTextColorClass(part)}`}
+              aria-current="page"
+            >
+            {part.label}
+          </a>
+          ) : (
+            <a
+              href={part.path}
+              class={`hover:text-amber-500 ${getTextColorClass(part)}`}
+            >
+              {part.label}
+            </a>
+          )}
+
+          {index < breadcrumbParts.length - 1 && (<span aria-hidden="true">/</span>)}
+        </li>
+      ))}
+    </ol>
   </nav>
 </header>
 
 <style>
-  header {
-    grid-template: 1fr / 1fr min-content 1fr;
-  }
-
   .blink::after {
     @apply text-neutral-400 ml-0.5;
     content: "▋";
