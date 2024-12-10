@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { fade } from 'svelte/transition';
+
   let showTooltip = $state(false);
 
   function toggleTooltip() {
@@ -26,16 +28,37 @@
   }
 </script>
 
-<div class="flex flex-row sm:flex-col items-stretch w-fit font-mono mt-4">
-  <div class="flex">
-    <p class="text-amber-500 text-2xl select-all bg-neutral-800 px-2 py-1 border-y-2 border-l-2">salevic@lu-ka.me</p>
-
-    <div class="border-2 border-l-neutral-900">
-      <button class="text-amber-500 h-full bg-neutral-800 hover:bg-neutral-900 px-2" onclick={copy}>copy me</button>
-    </div>
-  </div>
+<button
+    class="relative mt-2 text-xl font-bold border-2 w-fit mx-auto px-2 py-1 text-amber-500 hover:bg-neutral-900"
+    onclick={() => copy()}
+    aria-label="Copy email address salevic@lu-ka.me to clipboard"
+>
+  salevic@lu-ka.me
 
   {#if showTooltip}
-    <p class="ml-3 my-auto sm:mt-2 sm:ml-0 font-black">copied!</p>
+    <span
+      class="tooltip absolute bg-neutral-700 font-bold p-2 left-1/2 -translate-x-1/2 top-12 select-none pointer-events-none"
+      transition:fade={{ duration: 50 }}
+    >
+      copied!
+    </span>
+  {/if}
+</button>
+
+<div
+  role="status"
+  class="sr-only"
+  aria-live="polite"
+>
+  {#if showTooltip}
+    Email address copied to clipboard
   {/if}
 </div>
+
+<style lang="postcss">
+  .tooltip::before {
+    @apply absolute left-1/2 -translate-x-1/2 bottom-11 block border-transparent border-b-neutral-700;
+    content: '';
+    border-width: 0 0.5rem 0.5rem 0.5rem;
+  }
+</style>
