@@ -21,9 +21,52 @@ import { ClientRouter } from "astro:transitions";
       ))}
     </div>
 
-    <img src="/big-monkey.png" width="128" class="rotate-180 mt-12" alt="An upside-down pixelated monkey mask.">
+    <img src="/big-monkey.png" id="monkey" width="128" class="rotate-180 mt-12 cursor-pointer" alt="An upside-down pixelated monkey mask.">
 
     <h1 class="text-3xl font-bold mt-4">Seems you got lost</h1>
     <a class="text-2xl cursor-pointer font-bold mt-3 underline decoration-4 decoration-amber-500 hover:text-amber-500 hover:decoration-white" href="/">Go home?</a>
   </body>
 </html>
+
+<style>
+  .spin {
+    animation: spin 1s linear;
+  }
+
+  .spin-fast {
+    animation: spin 0.5s linear;
+  }
+
+  .spin-crazy {
+    animation: spin 0.2s linear;
+  }
+
+  .rainbow {
+    animation: rainbow 2s infinite linear;
+  }
+
+  .glitch {
+    animation: glitch 0.2s infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(180deg); }
+    to { transform: rotate(540deg); }
+  }
+
+  .spinning {
+    animation: spin 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>
+
+<script>
+  const monkey = document.getElementById('monkey');
+
+  monkey?.addEventListener('click', () => {
+    monkey.classList.add('spinning');
+  });
+
+  monkey?.addEventListener('animationend', () => {
+    monkey.classList.remove('spinning');
+  });
+</script>
