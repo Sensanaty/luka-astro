@@ -1,12 +1,5 @@
 ---
-const { currentPage = "/"} = Astro.props;
-
 const currentPath = Astro.url.pathname;
-
-const cwd = () => {
-  if (currentPath === "/") return "home";
-  return `home${currentPath}`;
-};
 
 const navItems = [
   { path: "/", label: "home" },
@@ -29,11 +22,38 @@ function getNavClass(path: string) {
   // For other paths
   return `${base} ${currentPath.startsWith(path) ? active : inactive}`;
 }
+
+const getBreadcrumbParts = () => {
+  if (currentPath === "/") return [{ label: "home", path: "/" }];
+
+  // Split the path and create breadcrumb items
+  const parts = currentPath.split('/').filter(Boolean);
+  return [
+    { label: "home", path: "/" },
+    ...parts.map((part, index) => ({
+      label: part,
+      path: '/' + parts.slice(0, index + 1).join('/')
+    }))
+  ];
+};
+
+const breadcrumbParts = getBreadcrumbParts();
 ---
 
 <header class="flex items-center bg-neutral-800 border-b border-x w-full px-3 pt-1 pb-0.5">
-  <p class="blink font-black text-sm" aria-label="Luka Salević">
-    luka-salević <span aria-hidden="true" class="md:hidden">~/{cwd}</span>
+  <p class="flex items-center font-black text-sm" aria-label="Luka Salević">
+    luka-salević
+    <span aria-hidden="true" class="blink ml-3 md:hidden flex items-center">
+      ~/
+      {breadcrumbParts.map((part, index) => (
+          <>
+            <a href={part.path} class="hover:text-amber-500">{part.label}</a>
+            {index < breadcrumbParts.length - 1 && (
+              <span>/</span>
+            )}
+          </>
+      ))}
+    </span>
   </p>
 
   <nav class="flex items-center gap-x-2 ml-auto">
@@ -49,7 +69,7 @@ function getNavClass(path: string) {
   }
 
   .blink::after {
-    @apply text-neutral-400 -ml-1.5;
+    @apply text-neutral-400 ml-0.5;
     content: "▋";
     animation: blink 900ms step-end infinite;
   }
