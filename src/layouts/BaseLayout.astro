@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import MainHeader from "@/components/MainHeader.astro";
 import MainFooter from "@/components/MainFooter.astro";
 import "@/assets/css/main.css";
@@ -14,7 +14,7 @@ const { title = "LUKA", currentPage = "/"} = Astro.props;
   <meta name="viewport" content="width=device-width" />
   <title>{title}</title>
 
-  <ViewTransitions />
+  <ClientRouter />
 </head>
 
 <body class="flex flex-col min-h-screen">
