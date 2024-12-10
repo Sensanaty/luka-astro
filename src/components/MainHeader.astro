@@ -7,7 +7,12 @@ type BreadcrumbPart = {
   isShenanigans?: boolean;
 }
 
-const currentPath = Astro.url.pathname;
+// Normalize paths by removing trailing slashes and ensuring leading slash
+function normalizePath(path: string): string {
+  return '/' + path.split('/').filter(Boolean).join('/');
+}
+
+const currentPath = normalizePath(Astro.url.pathname);
 
 const getBreadcrumbParts = (): BreadcrumbPart[] => {
   const parts: string[] = currentPath.split('/').filter(Boolean);
@@ -18,7 +23,7 @@ const getBreadcrumbParts = (): BreadcrumbPart[] => {
       label: "home",
       path: "/",
       isHome: true,
-      isActive: currentPath === "/",
+      isActive: currentPath === "/" || currentPath === "",
     },
     {
       label: "shenanigans",
@@ -33,7 +38,7 @@ const getBreadcrumbParts = (): BreadcrumbPart[] => {
     return [
       ...baseParts,
       ...parts.slice(1).map((part: string, index: number) => {
-        const fullPath = `/shenanigans/${parts.slice(1, index + 2).join('/')}`;
+        const fullPath = normalizePath(`/shenanigans/${parts.slice(1, index + 2).join('/')}`);
         return {
           label: part,
           path: fullPath,
@@ -60,7 +65,7 @@ function getTextColorClass(part: BreadcrumbPart): string {
     if (part.isActive) {
       return 'text-amber-500';
     }
-    if (currentPath.startsWith('/shenanigans/')) {
+    if (normalizePath(currentPath).startsWith('/shenanigans/')) {
       return 'text-white';
     }
     return 'text-neutral-400';
