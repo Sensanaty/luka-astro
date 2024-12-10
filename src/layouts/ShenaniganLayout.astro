@@ -1,17 +1,17 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import type { CollectionEntry } from "astro:content";
 
 interface Props {
   frontmatter?: {
     title: string;
   };
-  entry?: CollectionEntry<'blog'>;
+  entry?: unknown;
 }
 
 const { frontmatter, entry } = Astro.props;
 
-const title = frontmatter?.title || entry?.data?.title || "LUKA";
+// @ts-ignore
+const title = frontmatter?.title ?? entry?.data?.title ?? "LUKA";
 ---
 
 <BaseLayout title={"LUKA - " + title}>
