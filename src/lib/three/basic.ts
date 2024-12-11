@@ -41,9 +41,9 @@ let requestId: number;
 const animate = () => {
   requestId = requestAnimationFrame(animate);
 
-  toruses.forEach((torus) => {
-    torus.rotation.x += getRandomBetween(0.001, 0.01);
-    torus.rotation.y -= getRandomBetween(0.001, 0.01);
+  toruses.forEach((torus, index) => {
+    torus.rotation.x += getRandomBetween(0.003, 0.006) + (index / 1000);
+    torus.rotation.y -= getRandomBetween(0.003, 0.006) + (index / 1000);
   })
 
   renderer.render(scene, camera);
