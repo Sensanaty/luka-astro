@@ -1,17 +1,17 @@
 <script lang="ts">
   type Examples = {
     basic: boolean;
-    geometry: boolean;
+    rudimentaryControls: boolean;
   }
 
   let loadedExamples = $state<Examples>({
     basic: false,
-    geometry: false,
+    rudimentaryControls: false,
   });
 
   let shownExamples = $state<Examples>({
     basic: false,
-    geometry: false,
+    rudimentaryControls: false,
   });
 
   const toggleExample = (item: keyof Examples) => {
@@ -39,11 +39,21 @@
         <Component />
       {/await}
     {/if}
+
+    <button class={ shownExamples.rudimentaryControls ? 'text-amber-500' : '' } onclick={() => toggleExample('rudimentaryControls')}>Rudimentary Controls</button>
+
+    {#if loadedExamples.rudimentaryControls && shownExamples.rudimentaryControls}
+      {#await import("@/components/shenanigans/three/RudimentaryControls.svelte")}
+        <img src="/favicon.png" height="40" width="40" class="animate-spin mt-4" alt="Loading Spinner">
+      {:then { default: Component }}
+        <Component />
+      {/await}
+    {/if}
   </div>
 </div>
 
 <style lang="postcss">
   button {
-    @apply w-fit bg-neutral-800 transition-colors duration-75 px-2 py-1.5 border hover:bg-neutral-900 active:bg-neutral-950;
+    @apply w-fit bg-neutral-800 transition-colors duration-75 px-2 py-1.5 border mt-6 first-of-type:mt-0 hover:bg-neutral-900 active:bg-neutral-950;
   }
 </style>
