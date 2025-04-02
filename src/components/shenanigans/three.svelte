@@ -2,16 +2,19 @@
   type Examples = {
     basic: boolean;
     rudimentaryControls: boolean;
+    wasdaControls: boolean;
   }
 
   let loadedExamples = $state<Examples>({
     basic: false,
     rudimentaryControls: false,
+    wasdaControls: false,
   });
 
   let shownExamples = $state<Examples>({
     basic: false,
     rudimentaryControls: false,
+    wasdaControls: false,
   });
 
   const toggleExample = (item: keyof Examples) => {
@@ -44,6 +47,16 @@
 
     {#if loadedExamples.rudimentaryControls && shownExamples.rudimentaryControls}
       {#await import("@/components/shenanigans/three/RudimentaryControls.svelte")}
+        <img src="/favicon.png" height="40" width="40" class="animate-spin mt-4" alt="Loading Spinner">
+      {:then { default: Component }}
+        <Component />
+      {/await}
+    {/if}
+
+    <button class={ shownExamples.wasdaControls ? 'text-amber-500': '' } onclick={() => toggleExample('wasdaControls')}>WASDuh</button>
+
+    {#if loadedExamples.wasdaControls && shownExamples.wasdaControls}
+      {#await import("@/components/shenanigans/three/WasdaControls.svelte")}
         <img src="/favicon.png" height="40" width="40" class="animate-spin mt-4" alt="Loading Spinner">
       {:then { default: Component }}
         <Component />
