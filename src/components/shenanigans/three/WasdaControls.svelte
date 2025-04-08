@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onDestroy, onMount } from "svelte";
   import { throttle } from "radash";
+  import {createScene, stopScene} from "@/lib/three/wasdaControls.ts";
 
   let canvas: HTMLCanvasElement;
 
@@ -14,10 +15,12 @@
   onMount(() => {
     handleResize(); // Set initial size
     window.addEventListener('resize', handleResize);
+    createScene(canvas);
   });
 
   onDestroy(() => {
     window.removeEventListener('resize', handleResize);
+    stopScene()
   });
 </script>
 
@@ -27,7 +30,7 @@
   <div class="flex items-center bg-neutral-800 border p-2 w-fit mb-4 max-w-4xl">
     <span class="font-mono mr-4 rounded-full border border-amber-500 px-2 select-none" aria-hidden="true">i</span>
 
-    <p>This demo doesn't work properly on small screens (mainly touch devices, but that's difficult to detect without fingerprinting). I'll try handle touch devices in the future separately.</p>
+    <p>This doesn't work too nicely on small screens (mainly touch devices, but that's difficult to detect without fingerprinting). I'll try handle touch devices in the future separately.</p>
   </div>
 
   <canvas style="width: {width}px; height: {height}px;" bind:this={canvas}></canvas>
