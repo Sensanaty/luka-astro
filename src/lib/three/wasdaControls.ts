@@ -91,6 +91,35 @@ function createWalls() {
   });
 }
 
+function createLights() {
+  const ambientLight = scene.add(new THREE.AmbientLight(0x404040, 0.3));
+
+  const mainLight = new THREE.DirectionalLight(0xffffff, 0.7);
+  mainLight.position.set(5, 10, 5);
+
+  const fillLight = new THREE.PointLight(0x3366ff, 1);
+  fillLight.position.set(-5, 5, 5);
+
+  scene.add(ambientLight, mainLight, fillLight);
+}
+
+function createFloor() {
+  const floorGeometry = new THREE.PlaneGeometry(50, 50, 100, 100);
+  floorGeometry.rotateX(-Math.PI / 2);
+  scene.add(new THREE.Mesh(floorGeometry, new THREE.MeshBasicMaterial({ color: 0x272635 })));
+}
+
+function createPitchYawObjects() {
+  pitchObject = new THREE.Object3D();
+  pitchObject.add(camera);
+
+  yawObject = new THREE.Object3D();
+  yawObject.position.y = 1.6; // Roughly set to eye height
+  yawObject.add(pitchObject);
+
+  scene.add(yawObject);
+}
+
 export function createScene(el: HTMLCanvasElement) {
   renderer = new THREE.WebGLRenderer({ antialias: true, canvas: el, alpha: true });
 
@@ -110,31 +139,11 @@ export function createScene(el: HTMLCanvasElement) {
   resizeObserver.observe(el);
   handleResize();
 
-  pitchObject = new THREE.Object3D();
-  pitchObject.add(camera);
-
-  yawObject = new THREE.Object3D();
-  yawObject.position.y = 1.6; // Roughly sets to eye height
-  yawObject.add(pitchObject);
-
   scene.background = new THREE.Color(0x333333);
-  scene.add(yawObject);
 
-  scene.add(new THREE.AmbientLight(0x404040, 0.5)); // Dimmer ambient light
-
-  const mainLight = new THREE.DirectionalLight(0xffffff, 0.8);
-  mainLight.position.set(5, 10, 5);
-  mainLight.castShadow = true; // Enable shadows
-  scene.add(mainLight);
-
-  const fillLight = new THREE.PointLight(0x3366ff, 0.5);
-  fillLight.position.set(-5, 3, 5);
-  scene.add(fillLight);
-
-  const floorGeometry = new THREE.PlaneGeometry(50, 50, 100, 100);
-  floorGeometry.rotateX(-Math.PI / 2);
-  scene.add(new THREE.Mesh(floorGeometry, new THREE.MeshBasicMaterial({ color: 0x272635 })));
-
+  createPitchYawObjects();
+  createLights();
+  createFloor();
   createReferenceObjects();
   createWalls();
 
