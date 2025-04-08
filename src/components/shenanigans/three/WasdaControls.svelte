@@ -22,6 +22,10 @@
     window.removeEventListener('resize', handleResize);
     stopScene()
   });
+
+  function onCanvasClick() {
+    canvas.requestPointerLock();
+  }
 </script>
 
 <div class="flex flex-col items-center my-4">
@@ -33,5 +37,5 @@
     <p>This doesn't work too nicely on small screens (mainly touch devices, but that's difficult to detect without fingerprinting). I'll try handle touch devices in the future separately.</p>
   </div>
 
-  <canvas style="width: {width}px; height: {height}px;" bind:this={canvas}></canvas>
+  <canvas style="width: {width}px; height: {height}px;" bind:this={canvas} onclick={onCanvasClick}></canvas>
 </div>
