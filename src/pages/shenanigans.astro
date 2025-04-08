@@ -13,9 +13,19 @@ const posts = await Astro.glob('./shenanigans/*.{md,mdx}');
     only use this locally, but every once in a while I'll push something up when I feel like it.
   </h1>
 
+  <p class="font-sans mt-4">
+    If you're curious, you can check out the repo for the code samples of the shenanigans you see below <a href="https://github.com/Sensanaty/luka-astro/tree/master/src/components/shenanigans" rel="noopener" target="_blank">here</a>
+  </p>
+
   <div class="grid grid-cols-3 gap-x-4 gap-y-2.5 md:grid-cols-1 mt-4">
     {posts.map((post) => (
       <ShenaniganCard title={post.frontmatter.title} url={post.url} description={post.frontmatter.description} />
     ))}
   </div>
 </BaseLayout>
+
+<style>
+  a {
+    @apply underline decoration-2 cursor-pointer decoration-amber-500 hover:text-amber-500 hover:decoration-white;
+  }
+</style>
