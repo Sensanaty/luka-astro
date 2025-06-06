@@ -29,7 +29,7 @@
     "@types/three": "^0.175.0"
   },
   "engines" : {
-    "node" : ">22",
+    "node" : ">22"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
