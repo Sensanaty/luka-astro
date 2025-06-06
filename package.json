@@ -9,7 +9,6 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.2.3",
@@ -27,9 +26,6 @@
   "devDependencies": {
     "@types/node": "^22.10.10",
     "@types/three": "^0.175.0"
-  },
-  "engines" : {
-    "node" : ">22"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
